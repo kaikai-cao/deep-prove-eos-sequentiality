@@ -1,0 +1,6 @@
+2026-11-22T19:40:25+08:00
+https_proxy=http://127.0.0.1:55251
+NO_PROXY=127.0.0.1,localhost,::1
+HTTPS_PROXY=http://127.0.0.1:55251
+HTTP_PROXY=http://127.0.0.1:55251
+http_proxy=http://127.0.0.1:55251

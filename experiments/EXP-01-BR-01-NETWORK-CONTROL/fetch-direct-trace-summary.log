@@ -1,0 +1,89 @@
+19:40:30.953348 http.c:1033             == Info: Could not find host github.com in the .netrc file; using defaults
+19:40:30.954348 http.c:1033             == Info: Uses proxy env variable no_proxy == '127.0.0.1,localhost,::1'
+19:40:30.959793 http.c:1033             == Info: Host github.com:443 was resolved.
+19:40:30.959793 http.c:1033             == Info: IPv6: (none)
+19:40:30.959793 http.c:1033             == Info: IPv4: 20.205.243.166
+19:40:30.959793 http.c:1033             == Info:   Trying 20.205.243.166:443...
+19:40:31.064413 http.c:1033             == Info: ALPN: curl offers http/1.1
+19:40:31.065413 http.c:1033             == Info: TLSv1.3 (OUT), TLS handshake, Client hello (1):
+19:40:31.065413 http.c:1033             == Info: SSL Trust Anchors:
+19:40:31.071413 http.c:1033             == Info:   CAfile: D:/WorkBuddy/resources/vendor/PortableGit/mingw64/etc/ssl/certs/ca-bundle.crt
+19:40:31.168324 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Server hello (2):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Certificate (11):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, CERT verify (15):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Finished (20):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+19:40:31.168738 http.c:1033             == Info: TLSv1.3 (OUT), TLS handshake, Finished (20):
+19:40:31.168738 http.c:1033             == Info: SSL connection using TLSv1.3 / TLS_AES_128_GCM_SHA256 / x25519 / id-ecPublicKey
+19:40:31.168738 http.c:1033             == Info: ALPN: server accepted http/1.1
+19:40:31.168738 http.c:1033             == Info: Server certificate:
+19:40:31.172087 http.c:1033             == Info:   subject: CN=github.com
+19:40:31.172087 http.c:1033             == Info:   start date: Oct 30 00:00:00 2026 GMT
+19:40:31.172087 http.c:1033             == Info:   expire date: Jan 27 23:59:59 2027 GMT
+19:40:31.172087 http.c:1033             == Info:   issuer: C=GB; O=Sectigo Limited; CN=Sectigo Public Server Authentication CA DV E36
+19:40:31.172087 http.c:1033             == Info:   Certificate level 0: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA256
+19:40:31.172087 http.c:1033             == Info:   Certificate level 1: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using ecdsa-with-SHA384
+19:40:31.172087 http.c:1033             == Info:   Certificate level 2: Public key type EC/secp384r1 (384/192 Bits/secBits), signed using ecdsa-with-SHA384
+19:40:31.172087 http.c:1033             == Info:   subjectAltName: "github.com" matches cert's "github.com"
+19:40:31.172087 http.c:1033             == Info: OpenSSL verify result: 0
+19:40:31.172087 http.c:1033             == Info: SSL certificate verified via OpenSSL.
+19:40:31.172087 http.c:1033             == Info: Established connection to github.com (20.205.243.166 port 443) from 10.201.148.186 port 52736 
+19:40:31.172087 http.c:1033             == Info: using HTTP/1.x
+19:40:31.172087 http.c:992              => Send header: GET /tracel-ai/burn.git/info/refs?service=git-upload-pack HTTP/1.1
+19:40:31.172087 http.c:992              => Send header: Host: github.com
+19:40:31.172087 http.c:992              => Send header: User-Agent: git/2.55.0.windows.3
+19:40:31.172087 http.c:992              => Send header: Accept: */*
+19:40:31.172087 http.c:992              => Send header: Accept-Encoding: deflate, gzip, br, zstd
+19:40:31.172087 http.c:992              => Send header: Pragma: no-cache
+19:40:31.172087 http.c:992              => Send header: Git-Protocol: version=2
+19:40:31.172087 http.c:992              => Send header:
+19:40:31.172087 http.c:1033             == Info: Request completely sent off
+19:40:31.272058 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+19:40:31.272058 http.c:1033             == Info: TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+19:40:31.528817 http.c:992              <= Recv header: HTTP/1.1 200 OK
+19:40:31.528817 http.c:992              <= Recv header: Server: GitHub-Babel/3.0
+19:40:31.528817 http.c:992              <= Recv header: Content-Type: application/x-git-upload-pack-advertisement
+19:40:31.528817 http.c:992              <= Recv header: Content-Security-Policy: default-src 'none'; sandbox
+19:40:31.528817 http.c:992              <= Recv header: expires: Fri, 01 Jan 1980 00:00:00 GMT
+19:40:31.528817 http.c:992              <= Recv header: pragma: no-cache
+19:40:31.528817 http.c:992              <= Recv header: Cache-Control: no-cache, max-age=0, must-revalidate
+19:40:31.528817 http.c:992              <= Recv header: Vary: Accept-Encoding
+19:40:31.528817 http.c:992              <= Recv header: Strict-Transport-Security: max-age=31536000
+19:40:31.528817 http.c:992              <= Recv header: Transfer-Encoding: chunked
+19:40:31.528817 http.c:992              <= Recv header: Date: Sun, 22 Nov 2026 11:40:32 GMT
+19:40:31.528817 http.c:992              <= Recv header: X-Frame-Options: DENY
+19:40:31.528817 http.c:992              <= Recv header: X-GitHub-Request-Id: CE00:24964D:3106877:4A10EA1:6B02D4AF
+19:40:31.528817 http.c:992              <= Recv header: x-github-edge-region: southeastasia
+19:40:31.528817 http.c:992              <= Recv header:
+19:40:31.528817 http.c:1033             == Info: Connection #0 to host github.com:443 left intact
+19:40:31.529976 http.c:1033             == Info: Could not find host github.com in the .netrc file; using defaults
+19:40:31.529976 http.c:1033             == Info: Uses proxy env variable no_proxy == '127.0.0.1,localhost,::1'
+19:40:31.529976 http.c:1033             == Info: Reusing existing https: connection with host github.com
+19:40:31.529976 http.c:992              => Send header: POST /tracel-ai/burn.git/git-upload-pack HTTP/1.1
+19:40:31.529976 http.c:992              => Send header: Host: github.com
+19:40:31.529976 http.c:992              => Send header: User-Agent: git/2.55.0.windows.3
+19:40:31.529976 http.c:992              => Send header: Accept-Encoding: deflate, gzip, br, zstd
+19:40:31.529976 http.c:992              => Send header: Content-Type: application/x-git-upload-pack-request
+19:40:31.529976 http.c:992              => Send header: Accept: application/x-git-upload-pack-result
+19:40:31.529976 http.c:992              => Send header: Git-Protocol: version=2
+19:40:31.529976 http.c:992              => Send header: Content-Length: 197
+19:40:31.529976 http.c:992              => Send header:
+19:40:31.529976 http.c:1033             == Info: upload completely sent off: 197 bytes
+19:40:32.263834 http.c:992              <= Recv header: HTTP/1.1 200 OK
+19:40:32.263834 http.c:992              <= Recv header: Server: GitHub-Babel/3.0
+19:40:32.263834 http.c:992              <= Recv header: Content-Type: application/x-git-upload-pack-result
+19:40:32.263834 http.c:992              <= Recv header: Content-Security-Policy: default-src 'none'; sandbox
+19:40:32.263834 http.c:992              <= Recv header: expires: Fri, 01 Jan 1980 00:00:00 GMT
+19:40:32.263834 http.c:992              <= Recv header: pragma: no-cache
+19:40:32.263834 http.c:992              <= Recv header: Cache-Control: no-cache, max-age=0, must-revalidate
+19:40:32.263834 http.c:992              <= Recv header: Vary: Accept-Encoding
+19:40:32.263834 http.c:992              <= Recv header: Strict-Transport-Security: max-age=31536000
+19:40:32.263834 http.c:992              <= Recv header: Transfer-Encoding: chunked
+19:40:32.263834 http.c:992              <= Recv header: Date: Sun, 22 Nov 2026 11:40:32 GMT
+19:40:32.263834 http.c:992              <= Recv header: X-Frame-Options: DENY
+19:40:32.263834 http.c:992              <= Recv header: X-GitHub-Request-Id: CE00:24964D:310690F:4A10F5E:6B02D4B0
+19:40:32.263834 http.c:992              <= Recv header: x-github-edge-region: southeastasia
+19:40:32.263834 http.c:992              <= Recv header:
+fatal: fetch-pack: invalid index-pack output

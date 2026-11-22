@@ -1,0 +1,25 @@
+19:39:28.342460 http.c:1033             == Info: Could not find host github.com in the .netrc file; using defaults
+19:39:28.342792 http.c:1033             == Info:   Trying 127.0.0.1:55251...
+19:39:28.342792 http.c:1033             == Info: CONNECT: no ALPN negotiated
+19:39:28.342792 http.c:1033             == Info: Establishing HTTP proxy tunnel to github.com:443
+19:39:28.342792 http.c:980              => Send header, 0000000121 bytes (0x00000079)
+19:39:28.342792 http.c:992              => Send header: CONNECT github.com:443 HTTP/1.1
+19:39:28.342792 http.c:992              => Send header: Host: github.com:443
+19:39:28.342792 http.c:992              => Send header: User-Agent: git/2.55.0.windows.3
+19:39:28.342792 http.c:992              => Send header: Proxy-Connection: Keep-Alive
+19:39:28.342792 http.c:992              => Send header:
+19:39:38.346216 http.c:980              <= Recv header, 0000000026 bytes (0x0000001a)
+19:39:38.346216 http.c:992              <= Recv header: HTTP/1.1 502 Bad Gateway
+19:39:38.346216 http.c:980              <= Recv header, 0000000019 bytes (0x00000013)
+19:39:38.346216 http.c:992              <= Recv header: Connection: close
+19:39:38.346216 http.c:980              <= Recv header, 0000000016 bytes (0x00000010)
+19:39:38.346216 http.c:992              <= Recv header: Retry-After: 1
+19:39:38.346216 http.c:980              <= Recv header, 0000000020 bytes (0x00000014)
+19:39:38.346216 http.c:992              <= Recv header: Content-Length: 46
+19:39:38.346216 http.c:980              <= Recv header, 0000000041 bytes (0x00000029)
+19:39:38.346216 http.c:992              <= Recv header: Content-Type: text/plain; charset=utf-8
+19:39:38.346216 http.c:980              <= Recv header, 0000000002 bytes (0x00000002)
+19:39:38.346216 http.c:992              <= Recv header:
+19:39:38.346216 http.c:1033             == Info: CONNECT tunnel failed, response 502
+19:39:38.346216 http.c:1033             == Info: closing connection #0
+fatal: unable to access 'https://github.com/tracel-ai/burn.git/': CONNECT tunnel failed, response 502
