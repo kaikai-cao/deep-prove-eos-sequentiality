@@ -1,0 +1,78 @@
+BUILD RESTART 2026-11-22T17:41:29+08:00 (nightly installed via USTC mirror)
+    Updating git repository `https://github.com/a16z/arkworks-algebra`
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (Connection timed out after 30014 milliseconds); class=Net (12)
+warning: spurious network error (2 tries remaining): [35] SSL connect error (schannel: failed to receive handshake, SSL/TLS connection failed); class=Net (12)
+warning: spurious network error (1 try remaining): [56] Failure when receiving data from the peer (CONNECT tunnel failed, response 502); class=Net (12)
+error: failed to load source for dependency `ark-bn254`
+
+Caused by:
+  Unable to update https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a45
+
+Caused by:
+  failed to clone into: C:\Users\dell\.cargo\git\db\arkworks-algebra-55219ebe4db9d51c
+
+Caused by:
+  revision 76bb3a4518928f1ff7f15875f940d614bb9845e6 not found
+
+Caused by:
+  network failure seems to have happened
+  if a proxy or similar is necessary `net.git-fetch-with-cli` may help here
+  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
+
+Caused by:
+  [56] Failure when receiving data from the peer (CONNECT tunnel failed, response 502); class=Net (12)
+BUILD_EXIT=101 2026-11-22T17:42:51+08:00
+=== BUILD RETRY 1 2026-11-22T17:46:46+08:00 ===
+    Updating git repository `https://github.com/a16z/arkworks-algebra`
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (3 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (2 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (1 try remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+error: failed to load source for dependency `ark-bn254`
+
+Caused by:
+  Unable to update https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a45
+
+Caused by:
+  failed to fetch into: C:\Users\dell\.cargo\git\db\arkworks-algebra-55219ebe4db9d51c
+
+Caused by:
+  revision 76bb3a4518928f1ff7f15875f940d614bb9845e6 not found
+
+Caused by:
+  process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+BUILD_RETRY_ 2026-11-22T17:47:38+08:00
+=== BUILD RETRY 2 2026-11-22T17:47:58+08:00 ===
+    Updating git repository `https://github.com/a16z/arkworks-algebra`
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': OpenSSL SSL_read: OpenSSL/3.5.7: error:0A000126:SSL routines::unexpected eof while reading, errno 0
+warning: spurious network error (3 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (2 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': OpenSSL SSL_read: OpenSSL/3.5.7: error:0A000126:SSL routines::unexpected eof while reading, errno 0
+warning: spurious network error (1 try remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': OpenSSL SSL_read: OpenSSL/3.5.7: error:0A000126:SSL routines::unexpected eof while reading, errno 0
+error: failed to load source for dependency `ark-bn254`
+
+Caused by:
+  Unable to update https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a45
+
+Caused by:
+  failed to fetch into: C:\Users\dell\.cargo\git\db\arkworks-algebra-55219ebe4db9d51c
+
+Caused by:
+  revision 76bb3a4518928f1ff7f15875f940d614bb9845e6 not found
+
+Caused by:
+  process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+BUILD_RETRY_ 2026-11-22T17:49:18+08:00
+=== BUILD RETRY 3 2026-11-22T17:49:38+08:00 ===
+    Updating git repository `https://github.com/a16z/arkworks-algebra`
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (3 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (2 tries remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)
+fatal: unable to access 'https://github.com/a16z/arkworks-algebra/': CONNECT tunnel failed, response 502
+warning: spurious network error (1 try remaining): process didn't exit successfully: `git fetch --no-tags --force --update-head-ok 'https://github.com/a16z/arkworks-algebra' '+76bb3a4518928f1ff7f15875f940d614bb9845e6:refs/commit/76bb3a4518928f1ff7f15875f940d614bb9845e6'` (exit code: 128)

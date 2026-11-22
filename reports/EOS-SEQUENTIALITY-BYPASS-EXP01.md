@@ -1,6 +1,7 @@
 # EOS Sequentiality Bypass — EXP-01 Main Report
 
-Status: **SKELETON — NOT REPRODUCED**. No vulnerability claim.
+Status: **EXP-01-B IN PROGRESS — NOT REPRODUCED**. No vulnerability claim.
+Phase B detailed results: `EXP-01-B-BOUNDARY-RESULTS.md`.
 
 This file is intentionally empty of conclusions. It will be filled only with
 evidence from executed phases. Verdict rule: `../EXPERIMENT-PLAN.md`.

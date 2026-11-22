@@ -16,10 +16,10 @@ Pinned revision: `../../upstream/UPSTREAM-REVISION.md`.
 
 ## Phase checklist
 
-- [ ] EXP-01-A: pin revision and verify API reachability — **done at source level**; see `../../notes/source-inspection.md`
-- [ ] EXP-01-B: EOS at first generated position / second generated position / no EOS
-- [ ] EXP-01-C: crafted non-autoregressive sequence accepted by original verifier
-- [ ] EXP-01-D: minimal EOS-index fix rejects the same proof and IO
+- [x] EXP-01-A: pin revision and verify API reachability — **done at source level**; see `../../notes/source-inspection.md`
+- [ ] EXP-01-B: **B0_FAIL** (build blocked by git-dependency network); B1 not executed. See `../../reports/EXP-01-B-BOUNDARY-RESULTS.md`
+- [ ] EXP-01-C: crafted non-autoregressive sequence accepted by original verifier (not started; blocked by B0)
+- [ ] EXP-01-D: minimal EOS-index fix rejects the same proof and IO (not started)
 
 ## Naming convention
 
