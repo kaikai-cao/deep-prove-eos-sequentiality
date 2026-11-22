@@ -1,0 +1,51 @@
+# EXP-01-B3 fixed prompt seeds (48).
+# One prompt per line. Tokenized by GPT-2 tokenizer; seeds producing 2..20 tokens are used.
+# Token budget: 48 prompts x up to 64 candidates <= 3072 forward evaluations.
+The cat sat
+Hello world
+Once upon a time
+I like to think
+This is a test
+The sky is blue
+She reads a book
+We go to the park
+It was a dark night
+He opened the door
+A bird in the hand
+The quick brown fox
+To be or not to be
+I love you
+The sun is shining
+They are running fast
+My name is John
+This morning I woke up
+Do you know the way
+Please help me with this
+The weather is nice today
+I want to learn more
+Let us begin now
+Can you hear me
+She sings a song
+The dog barked loudly
+We will see tomorrow
+Nothing is impossible
+Knowledge is power
+The train arrived late
+I have a question
+What is your name
+Where are you going
+Why did it happen
+How does this work
+Tell me a story
+The river flows east
+A small wooden house
+Birds fly in the sky
+The child smiled brightly
+Coffee tastes very good
+We should leave early
+The meeting starts at noon
+I remember that day
+Everything is fine now
+This is the last one
+One more try please
+The end of the line

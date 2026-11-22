@@ -1,0 +1,134 @@
+name: EXP-01-B3 EOS Witness Feasibility + Verifier Differential
+
+# Manual trigger only. Private-repo ubuntu-24.04 runner (2 vCPU / 8 GB / 14 GB).
+# Single fresh build, no Actions cache, CARGO_BUILD_JOBS=2, 240-min job cap.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  UPSTREAM_REPO: Lagrange-Labs/deep-prove
+  UPSTREAM_COMMIT: 9d1a53e2ef49ffa2c902b8689cd3c58057a4e662
+  LOCK_BLOB: 7b1b9da7bae322ccebcaff11981c2c4019c613f5
+  HF_MODEL: openai-community/gpt2
+  CARGO_BUILD_JOBS: 2
+  SEARCH_BUDGET_SECS: "2700"
+
+jobs:
+  b3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - name: Checkout experiment repo (B3 branch)
+        uses: actions/checkout@v4
+        with:
+          ref: exp-01-b3-eos-witness
+
+      - name: Install fixed nightly toolchain
+        run: |
+          rustup toolchain install nightly-2026-01-27 --profile minimal
+          rustup component add rustfmt --toolchain nightly-2026-01-27 || true
+          rustc +nightly-2026-01-27 --version
+          cargo +nightly-2026-01-27 --version
+
+      - name: Prepare fresh CARGO_HOME (no cache)
+        run: |
+          export CARGO_HOME="$RUNNER_TEMP/b3-cargo-home"
+          mkdir -p "$CARGO_HOME"
+          printf '[net]\ngit-fetch-with-cli = true\n' > "$CARGO_HOME/config.toml"
+          echo "CARGO_HOME=$CARGO_HOME" >> "$GITHUB_ENV"
+          echo "fresh CARGO_HOME created at $CARGO_HOME"
+
+      - name: Clone fixed upstream commit (with .git, no submodules shallow tricks)
+        run: |
+          git clone https://github.com/${UPSTREAM_REPO}.git "$RUNNER_TEMP/upstream"
+          cd "$RUNNER_TEMP/upstream"
+          git checkout -q "$UPSTREAM_COMMIT"
+          echo "HEAD=$(git rev-parse HEAD)"
+          test "$(git rev-parse HEAD)" = "$UPSTREAM_COMMIT"
+          echo "LOCK_BLOB=$(git rev-parse HEAD:Cargo.lock)"
+          test "$(git rev-parse HEAD:Cargo.lock)" = "$LOCK_BLOB"
+          echo "SOURCE_IDENTITY=OK"
+
+      - name: Inject B3 harness bin (no existing upstream file modified)
+        run: |
+          SRC="$GITHUB_WORKSPACE/experiments/EXP-01-B3/harness/b3_witness.rs"
+          DST="$RUNNER_TEMP/upstream/zkml/src/bin/b3_witness.rs"
+          cp "$SRC" "$DST"
+          echo "harness copied to $DST"
+          sha256sum "$SRC" "$DST"
+
+      - name: Resolve pinned HF revision + download fixed-revision files
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/b3-model"
+          # Resolve the exact commit SHA the main branch currently points to.
+          REV=$(curl -fsSL "https://huggingface.co/api/models/${HF_MODEL}" \
+                | python3 -c 'import sys,json; print(json.load(sys.stdin)["sha"])')
+          echo "HF_REVISION=$REV" | tee "$RUNNER_TEMP/b3-model/REVISION.txt"
+          echo "HF_REVISION=$REV" >> "$GITHUB_ENV"
+          for f in model.safetensors tokenizer.json config.json; do
+            curl -fsSL "https://huggingface.co/${HF_MODEL}/resolve/${REV}/${f}" \
+              -o "$RUNNER_TEMP/b3-model/$f"
+          done
+          cd "$RUNNER_TEMP/b3-model"
+          sha256sum model.safetensors tokenizer.json config.json > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+          du -h model.safetensors
+
+      - name: Copy prompt seeds
+        run: |
+          cp "$GITHUB_WORKSPACE/experiments/EXP-01-B3/prompt-seeds.txt" "$RUNNER_TEMP/b3-model/prompt-seeds.txt"
+          wc -l "$RUNNER_TEMP/b3-model/prompt-seeds.txt"
+
+      # ---------- Official CPU build gate (B3_BLOCKED_CLOUD_BUILD if fails) ----------
+      - name: Official fresh build (bench-llm)
+        working-directory: ${{ runner.temp }}/upstream
+        run: |
+          cargo +nightly-2026-01-27 fetch --locked
+          cargo +nightly-2026-01-27 build --locked --release -p zkml --bin bench-llm 2>&1 \
+            | tee "$RUNNER_TEMP/build-bench-llm.log"
+          echo "OFFICIAL_BUILD=OK"
+          test -x target/release/bench-llm
+
+      - name: Build B3 harness
+        working-directory: ${{ runner.temp }}/upstream
+        run: |
+          cargo +nightly-2026-01-27 build --locked --release -p zkml --bin b3_witness 2>&1 \
+            | tee "$RUNNER_TEMP/build-harness.log"
+          test -x target/release/b3_witness
+          echo "HARNESS_BUILD=OK"
+
+      - name: Run witness search + proof + dual verifier differential
+        working-directory: ${{ runner.temp }}/upstream
+        run: |
+          set +e
+          RUST_LOG=info ./target/release/b3_witness \
+            --model-dir "$RUNNER_TEMP/b3-model" \
+            --prompt-seeds "$RUNNER_TEMP/b3-model/prompt-seeds.txt" \
+            --out-dir "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output" \
+            2>&1 | tee "$RUNNER_TEMP/b3-run.log"
+          echo "B3_RUN_EXIT=${PIPESTATUS[0]}" | tee -a "$RUNNER_TEMP/b3-status.txt"
+          grep '^B3_STATUS=' "$RUNNER_TEMP/b3-run.log" | tee -a "$RUNNER_TEMP/b3-status.txt" || true
+
+      - name: Collect evidence into experiment dir
+        if: always()
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs"
+          cp "$RUNNER_TEMP/b3-model/REVISION.txt" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/b3-model/SHA256SUMS.txt" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/build-bench-llm.log" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/build-harness.log" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/b3-run.log" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          cp "$RUNNER_TEMP/b3-status.txt" "$GITHUB_WORKSPACE/experiments/EXP-01-B3/run-output/logs/" 2>/dev/null || true
+          echo "collected logs"
+
+      - name: Upload run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exp-01-b3-run
+          path: experiments/EXP-01-B3/run-output
+          if-no-files-found: warn
