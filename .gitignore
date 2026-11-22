@@ -1,0 +1,19 @@
+# Git
+.git/
+**/target/
+**/.venv/
+**/venv/
+__pycache__/
+*.pyc
+.env
+
+# Large generated artifacts: keep manifests and hashes in Git,
+# store large model weights and raw proof artifacts separately.
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+
+# Local upstream checkout (pinned by revision in upstream/UPSTREAM-REVISION.md)
+upstream/deep-prove/
