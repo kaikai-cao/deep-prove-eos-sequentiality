@@ -1,0 +1,11 @@
+error: failed to get `burn` as a dependency of package `zkml v2.0.1 (D:\Research\deep-prove-cache-source\zkml)`
+
+Caused by:
+  failed to load source for dependency `burn`
+
+Caused by:
+  unable to update https://github.com/tracel-ai/burn.git?rev=c071730459a135b4d06ad0e14c8a0e5771e5ba58#c0717304
+
+Caused by:
+  can't checkout from 'https://github.com/tracel-ai/burn.git': you are in the offline mode (--offline)
+FETCH_OFFLINE_EXIT=101
