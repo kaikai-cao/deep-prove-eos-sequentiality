@@ -1,0 +1,28 @@
+A2/A3 START 2026-11-22T18:39:53+08:00
+CARGO_HOME=D:/Research/deep-prove-cargo-bundle/cargo-home
+CMD cargo +stable fetch --locked
+cargo 1.98.1 (797e8a9bc 2026-08-05)
+rustc 1.98.1 (48a229cea 2026-09-01)
+    Updating git repository `https://github.com/a16z/arkworks-algebra`
+warning: spurious network error (3 tries remaining): [28] Timeout was reached (Connection timed out after 30012 milliseconds); class=Net (12)
+warning: spurious network error (2 tries remaining): [7] Could not connect to server (CONNECT tunnel failed, response 502); class=Net (12)
+warning: spurious network error (1 try remaining): [7] Could not connect to server (CONNECT tunnel failed, response 502); class=Net (12)
+error: failed to load source for dependency `ark-bn254`
+
+Caused by:
+  unable to update https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a45
+
+Caused by:
+  failed to clone into: D:/Research/deep-prove-cargo-bundle/cargo-home\git\db\arkworks-algebra-55219ebe4db9d51c
+
+Caused by:
+  revision 76bb3a4518928f1ff7f15875f940d614bb9845e6 not found
+
+Caused by:
+  network failure seems to have happened
+  if a proxy or similar is necessary `net.git-fetch-with-cli` may help here
+  https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
+
+Caused by:
+  [35] SSL connect error (schannel: failed to receive handshake, SSL/TLS connection failed); class=Net (12)
+FETCH_ONLINE_EXIT=101

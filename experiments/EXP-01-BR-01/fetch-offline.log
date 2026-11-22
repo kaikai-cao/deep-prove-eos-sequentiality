@@ -1,0 +1,9 @@
+error: failed to load source for dependency `ark-bn254`
+
+Caused by:
+  unable to update https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a45
+
+Caused by:
+  can't checkout from 'https://github.com/a16z/arkworks-algebra': you are in the offline mode (--offline)
+FETCH_OFFLINE_EXIT=101
+A2/A3 END 2026-11-22T18:41:14+08:00

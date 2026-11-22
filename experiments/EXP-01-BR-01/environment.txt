@@ -1,0 +1,46 @@
+EXP-01-BR-01 environment record
+Date: 2026-11-22 (Asia/Shanghai)
+Shell: Git Bash (MINGW64_NT-10.0-26320 3.6.9-b4195d69.x86_64)
+OS: Microsoft Windows 11 Insider Preview build 26320
+CPU: Intel Core i7-14700, 20 physical / 28 logical cores
+RAM: 31.69 GB total
+Network: HTTP(S) proxy 127.0.0.1:53706; github.com CONNECT intermittently 502;
+         api.github.com reachable (HTTP 200 at 18:33:58).
+
+Experiment repository
+  path: D:\Research\deep-prove-eos-sequentiality
+  HEAD at phase start: 124dcbfa60aba58c61dfc733a8497256cf907ecb
+  worktree status at phase start: clean
+
+Fixed baseline
+  upstream: https://github.com/Lagrange-Labs/deep-prove.git
+  upstream commit: 9d1a53e2ef49ffa2c902b8689cd3c58057a4e662
+  Cargo.lock blob: 7b1b9da7bae322ccebcaff11981c2c4019c613f5
+  rust-toolchain.toml: nightly-2026-01-27
+  target package / binary: zkml / bench-llm
+
+Toolchains
+  stable  : cargo 1.98.1 (797e8a9bc 2026-08-05), rustc 1.98.1 (48a229cea 2026-09-01)
+  nightly : cargo 1.95.0-nightly (efcd9f586 2026-01-23),
+            rustc 1.95.0-nightly (474276961 2026-01-26)  [nightly-2026-01-27-x86_64-pc-windows-msvc]
+  stable cargo >= 1.85 requirement: satisfied (1.98.1)
+
+Phase A paths
+  cache source workspace: D:\Research\deep-prove-cache-source
+  cache root / isolated CARGO_HOME: D:\Research\deep-prove-cargo-bundle\cargo-home
+  isolated CARGO_HOME config.toml: [net] git-fetch-with-cli = true
+  (cargo official network-backend setting; no source/lock/dependency change)
+
+Global git settings in effect (from earlier stages)
+  http.version=HTTP/1.1, http.lowSpeedLimit=1000, http.lowSpeedTime=60
+
+Connectivity observations (this stage)
+  18:33:58  git ls-remote OK for deep-prove, arkworks-algebra, dp-crypto
+  18:39:38  A0 clone/fetch/checkout of pinned commit all exit 0
+  18:41:14  A3 online cargo fetch exit 101 (libgit2 CONNECT 502 / SSL schannel)
+  18:41:50  git CLI ls-remote arkworks: CONNECT 502
+  18:42:06  git CLI ls-remote arkworks: CONNECT 502
+  18:42:21  git CLI ls-remote arkworks: CONNECT 502
+
+No upstream source, Cargo.toml, Cargo.lock, toolchain or default feature was modified.
+No cargo update was run. No path dependency was substituted for a Git dependency.

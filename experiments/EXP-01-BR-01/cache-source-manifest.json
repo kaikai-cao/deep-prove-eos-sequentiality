@@ -1,0 +1,93 @@
+{
+  "stage": "EXP-01-BR-01",
+  "recorded_at": "2026-11-22",
+  "status": "BR_FAIL_FETCH",
+  "fixed_baseline": {
+    "upstream_url": "https://github.com/Lagrange-Labs/deep-prove.git",
+    "upstream_commit": "9d1a53e2ef49ffa2c902b8689cd3c58057a4e662",
+    "cargo_lock_blob_sha": "7b1b9da7bae322ccebcaff11981c2c4019c613f5",
+    "rust_toolchain": "nightly-2026-01-27",
+    "target_package": "zkml",
+    "target_binary": "bench-llm",
+    "target_build_command": "cargo build --release -p zkml --bin bench-llm"
+  },
+  "phase_A": {
+    "A0_independent_workspace": {
+      "path": "D:/Research/deep-prove-cache-source",
+      "env": "GIT_LFS_SKIP_SMUDGE=1",
+      "clone": "git clone --filter=blob:none --no-checkout https://github.com/Lagrange-Labs/deep-prove.git",
+      "fetch": "git -C <repo> fetch --depth=1 origin <commit>",
+      "checkout": "git -C <repo> checkout --detach <commit>",
+      "exit_codes": {"clone": 0, "fetch": 0, "checkout": 0},
+      "log": "a0-clone.log",
+      "result": "PASS"
+    },
+    "A1_version_check": {
+      "actual_head": "9d1a53e2ef49ffa2c902b8689cd3c58057a4e662",
+      "actual_lock_blob": "7b1b9da7bae322ccebcaff11981c2c4019c613f5",
+      "worktree_clean": true,
+      "result": "MATCH_OK",
+      "log": "a1-version-check.log"
+    },
+    "A2_isolated_cargo_home": {
+      "path": "D:/Research/deep-prove-cargo-bundle/cargo-home",
+      "stable_cargo": "1.98.1",
+      "stable_rustc": "1.98.1",
+      "config": "[net]\ngit-fetch-with-cli = true",
+      "result": "PASS"
+    },
+    "A3_fetch_locked": {
+      "first_attempt_online": {
+        "command": "cargo +stable fetch --locked",
+        "exit_code": 101,
+        "failure": "proxy CONNECT 502 / schannel SSL error while updating a16z/arkworks-algebra?branch=dev/twist-shout#76bb3a45",
+        "log": "fetch-online.log"
+      },
+      "first_attempt_offline_validation": {
+        "command": "cargo +stable fetch --locked --offline",
+        "exit_code": 101,
+        "log": "fetch-offline.log"
+      },
+      "network_backend_config_applied": true,
+      "git_cli_window_test": [
+        "18:41:50 CONNECT 502",
+        "18:42:06 CONNECT 502",
+        "18:42:21 CONNECT 502"
+      ],
+      "decision": "STOP per task-package stop condition 2 (online cargo fetch --locked failed); no further retry loop",
+      "result": "FAIL"
+    },
+    "A4_git_source_locks": {
+      "source_file": "fixed Cargo.lock in D:/Research/deep-prove-cache-source",
+      "method": "grep '^source = \"git+' + strip prefix/suffix + sort -u",
+      "count": 9,
+      "all_pinned_commits_match_user_list": true,
+      "artifact": "git-source-locks.txt",
+      "result": "PASS"
+    },
+    "A5_archive": {
+      "result": "NOT_EXECUTED",
+      "reason": "A3 failed; no dependency bundle to archive"
+    }
+  },
+  "phase_B": {
+    "result": "NOT_EXECUTED",
+    "reason": "blocked by A3 failure; no cache bundle generated"
+  },
+  "phase_C": {
+    "result": "NOT_EXECUTED",
+    "reason": "blocked by A3 failure; B0/B1 remain frozen"
+  },
+  "invariants": {
+    "upstream_source_modified": false,
+    "cargo_toml_modified": false,
+    "cargo_lock_modified": false,
+    "cargo_update_run": false,
+    "path_dependency_substituted": false,
+    "toolchain_changed": false,
+    "default_feature_changed": false,
+    "model_run": false,
+    "eos_prompt_search": false,
+    "b1_or_c_started": false
+  }
+}

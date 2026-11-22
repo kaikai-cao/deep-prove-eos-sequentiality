@@ -1,0 +1,11 @@
+A0 START 2026-11-22T18:34:34+08:00
+ENV GIT_LFS_SKIP_SMUDGE=1
+CMD git clone --filter=blob:none --no-checkout https://github.com/Lagrange-Labs/deep-prove.git D:/Research/deep-prove-cache-source
+Cloning into 'D:/Research/deep-prove-cache-source'...
+CLONE_EXIT=0
+From https://github.com/Lagrange-Labs/deep-prove
+ * branch            9d1a53e2ef49ffa2c902b8689cd3c58057a4e662 -> FETCH_HEAD
+FETCH_EXIT=0
+HEAD is now at 9d1a53e feat: implifying licensing just put Lagrange (#354)
+CHECKOUT_EXIT=0
+A0 END 2026-11-22T18:39:38+08:00

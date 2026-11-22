@@ -1,0 +1,9 @@
+https://github.com/Lagrange-Labs/dp-crypto.git?branch=feat%2Fhkzg_gpu#22e8e93cd0f94a7638616a1ae22190feb0a6b275
+https://github.com/Lagrange-Labs/ec-gpu?branch=feat%2Fhkzg_gpu#2606f2c5eb9c3068b36778e5fdab2b1f374a6cdc
+https://github.com/a16z/arkworks-algebra?branch=dev%2Ftwist-shout#76bb3a4518928f1ff7f15875f940d614bb9845e6
+https://github.com/delehef/metro.git#77370daf7fbd5ff92af98b3835c273c2122b8577
+https://github.com/hackaugusto/mem-track?branch=main#7586dd0d6cb8b6c7b3aee58a2acf4060933fb819
+https://github.com/nikkolasg/timed-rs#6a2524f8532e5a9c31740df20c4875754a5dc2cf
+https://github.com/tracel-ai/burn.git?rev=c071730459a135b4d06ad0e14c8a0e5771e5ba58#c071730459a135b4d06ad0e14c8a0e5771e5ba58
+https://github.com/tracel-ai/cubecl.git?rev=7cd8e9c869d363edcbf989fd905eb4b28df938ab#7cd8e9c869d363edcbf989fd905eb4b28df938ab
+https://github.com/tracel-ai/cubek?rev=8097a621dfd3a6a89f8d0433994e8c1adba377c2#8097a621dfd3a6a89f8d0433994e8c1adba377c2
