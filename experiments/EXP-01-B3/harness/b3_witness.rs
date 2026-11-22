@@ -22,14 +22,14 @@ use ark_bn254::Bn254;
 use dp_crypto::arkyper::HyperKZG;
 use dp_crypto::arkyper::transcript::blake3::Blake3Transcript;
 use itertools::Itertools;
-use rand::{Rng, SeedableRng, rngs::StdRng};
+use ark_std::rand::{Rng, SeedableRng, rngs::StdRng};
 use sha2::{Digest, Sha256};
 use tenstore::GenStore;
 use tracing::{info, warn};
 use tracing_subscriber::EnvFilter;
 
 use zkml::{
-    IO, Proof, ProverContext,
+    IO, Proof,
     graph::Node,
     iop::verifier::verify as verify_proof,
     layers::Layer,
@@ -110,12 +110,14 @@ fn forward(
     let mut store = GenStore::default();
     let tensor = driver.tokens_to_tensor(tokens)?;
     let trace: Trace<zkml::Element> = driver.run(vec![tensor], &mut store)?;
-    let out = trace
-        .outputs()
-        .last()
-        .context("trace has no output")?
-        .tensor()?;
-    let argmax = out.data().iter().map(|t| Number::to_usize(t)).collect();
+    let argmax: Vec<usize> = {
+        let out = trace
+            .outputs()
+            .last()
+            .context("trace has no output")?
+            .tensor()?;
+        out.data().iter().map(|t| Number::to_usize(t)).collect()
+    }; // guard dropped here, so `trace` can be moved out
     Ok((argmax, trace))
 }
 
@@ -444,7 +446,7 @@ fn main() -> Result<()> {
 
     std::fs::write(
         args.out_dir.join("proof-metadata.json"),
-        serde_json::to_string_pretty(&serde_json::Value::Object(meta_json))?,
+        serde_json::to_string_pretty(&serde_json::Value::Object(meta_json.clone()))?,
     )?;
 
     // Determine final status. Distinguish the differential-required check:
