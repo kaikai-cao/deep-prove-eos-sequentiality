@@ -1,0 +1,21 @@
+[2m2026-11-22T13:25:18.469372Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m Loading quantized GPT-2 (max_context=32)
+[2m2026-11-22T13:25:18.469400Z[0m [32m INFO[0m [2mzkml::model::llm[0m[2m:[0m LLM Driver: Loading model gpt2 from SafeTensors: /home/runner/work/_temp/b3-model/model.safetensors
+[2m2026-11-22T13:25:19.493337Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Using the 1 provided representative inputs to quantize model
+[2m2026-11-22T13:25:23.916895Z[0m [32m INFO[0m [2mzkml::quantization::strategy[0m[2m:[0m Quantized model with 261 layers, output node ids: [Node(162)]
+[2m2026-11-22T13:25:23.922153Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m vocab_size=50257
+[2m2026-11-22T13:25:23.922193Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt seeds: 48
+[2m2026-11-22T13:25:26.438404Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 0 n=3 a=866 candidates=64
+[2m2026-11-22T13:28:44.343843Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 1 n=2 a=11 candidates=64
+[2m2026-11-22T13:31:23.224725Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 2 n=4 a=11 candidates=64
+[2m2026-11-22T13:35:26.563824Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 3 n=4 a=326 candidates=64
+[2m2026-11-22T13:39:25.564641Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 4 n=4 a=286 candidates=64
+[2m2026-11-22T13:43:26.581279Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 5 n=4 a=13 candidates=64
+[2m2026-11-22T13:47:23.667246Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 6 n=4 a=1444 candidates=64
+[2m2026-11-22T13:51:30.606952Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 7 n=5 a=11 candidates=64
+[2m2026-11-22T13:56:15.959842Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 8 n=5 a=13 candidates=64
+[2m2026-11-22T14:01:20.217060Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 9 n=4 a=284 candidates=64
+[2m2026-11-22T14:05:44.308168Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m prompt 10 n=5 a=286 candidates=64
+[2m2026-11-22T14:10:26.432224Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m search budget reached: evals=701 elapsed=2702.510023256s
+[2m2026-11-22T14:10:26.436479Z[0m [32m INFO[0m [2mb3_witness[0m[2m:[0m search done: evals=701 elapsed=2702.514279959s candidates=0
+B3_STATUS=B3_NO_WITNESS_WITHIN_BUDGET
+evals=701 elapsed_secs=2702
